@@ -10,7 +10,7 @@ def saluer_personne(nom, heure):
 
 
 
-print(saluer_personne("Tom", 8))   
+print(saluer_personne("Tom", 9))   
 print(saluer_personne("Victor", 14))  
 print(saluer_personne("Marie", 20))    
 print(saluer_personne("Paul", 3))     
