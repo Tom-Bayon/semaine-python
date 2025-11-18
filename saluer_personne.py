@@ -1,4 +1,7 @@
 def saluer_personne(nom, heure):
+
+    """""Salue une personne selon l'heure de la journée 
+    """""
     if 6 <= heure < 12:
         return f"Bonjour {nom}"
     elif 12 <= heure < 18:
