@@ -1,5 +1,11 @@
 def est_mot_de_passe_valide(mot):
-    
+    """verifie si le mot de passe est correct 
+
+    Args:
+        mot (stt): _description_
+
+
+    """
     longueur_ok = len(mot) >= 8
     chiffre_ok = False
     maj_ok = False
@@ -18,6 +24,6 @@ def est_mot_de_passe_valide(mot):
 
 
 
-print(est_mot_de_passe_valide("Ab123456"))  
+print(est_mot_de_passe_valide("MdP12345"))  
 print(est_mot_de_passe_valide("ab123456"))  
 print(est_mot_de_passe_valide("ABCDEFGH"))  
