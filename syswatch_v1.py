@@ -18,7 +18,7 @@ def afficher_infos_cpu():
     print("=== CPU ===")
     print(f"Coeurs physiques: {psutil.cpu_count(logical=False)}")
     print(f"Coeurs logiques: {psutil.cpu_count(logical=True)}")
-    print(f"Utilisation: {psutil.cpu_percent(interval=1):.1f}%")
+    print(f"Utilisation: {psutil.cpu_percent(interval=1):.2f}%")
     print()
 
 def afficher_infos_memoire():
