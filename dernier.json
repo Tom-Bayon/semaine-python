@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-19 16:20:09",
+  "timestamp": "2025-11-19 16:39:23",
   "systeme": {
     "os_nom": "Windows",
     "version_os": "10.0.26100",
@@ -9,18 +9,18 @@
   "cpu": {
     "coeurs_physiques": 10,
     "coeurs_logiques": 12,
-    "utilisation": 8.7
+    "utilisation": 4.7
   },
   "memoire": {
     "total_octets": 16908906496,
-    "disponible_octets": 3165908992,
-    "pourcentage": 81.3
+    "disponible_octets": 3875143680,
+    "pourcentage": 77.1
   },
   "disques": [
     {
       "nom_partition": "C:\\",
       "total_octets": 1022844989440,
-      "utilise_octets": 344854921216,
+      "utilise_octets": 344855744512,
       "pourcentage": 33.7
     }
   ]
