@@ -5,41 +5,42 @@ def octets_vers_go(octets):
     """Convertit des octets en Go avec 2 décimales"""
     return f"{octets / (1024**3):.2f} GB"
 
-def afficher_systeme(data):
+
+def afficher_systeme(systeme_info):
     """
-    Affiche les informations système contenues dans le dictionnaire 'data'
+    Affiche les informations système contenues dans systeme_info
     """
     print("=== Système ===")
-    print(f"OS: {data['os']}")                
-    print(f"Version: {data['version']}")      
-    print(f"Architecture: {data['architecture']}")  
-    print(f"Hostname: {data['hostname']}\n")  
+    print(f"OS: {systeme_info['os_nom']}")
+    print(f"Version: {systeme_info['version_os']}")
+    print(f"Architecture: {systeme_info['archi']}")
+    print(f"Nom de la machine: {systeme_info['nom_machine']}\n")
 
-def afficher_cpu(data):
+def afficher_cpu(cpu_info):
     """
-    Affiche les informations CPU contenues dans le dictionnaire 'data'
+    Affiche les informations CPU contenues dans cpu_info
     """
     print("=== CPU ===")
-    print(f"Cœurs physiques: {data['coeurs_physiques']}")  
-    print(f"Cœurs logiques: {data['coeurs_logiques']}")    
-    print(f"Utilisation: {data['utilisation']:.2f}%\n")
+    print(f"Cœurs physiques: {cpu_info['coeurs_physiques']}")
+    print(f"Cœurs logiques: {cpu_info['coeurs_logiques']}")
+    print(f"Utilisation: {cpu_info['utilisation']:.2f}%\n")
 
-def afficher_memoire(data):
-    """Affiche les informations mémoire contenues dans le dictionnaire 'data'
+def afficher_memoire(mem_info):
+    """
+    Affiche les informations mémoire contenues dans mem_info
     """
     print("=== Mémoire ===")
-    print(f"Total: {octets_vers_go(data['total'])}")      
-    print(f"Disponible: {octets_vers_go(data['disponible'])}") 
-    print(f"Utilisation: {data['pourcentage']:.2f}%\n") 
+    print(f"Total: {octets_vers_go(mem_info['total_octets'])}")
+    print(f"Disponible: {octets_vers_go(mem_info['disponible_octets'])}")
+    print(f"Utilisation: {mem_info['pourcentage']:.2f}%\n")
 
 def afficher_disques(disques):
     """
     Affiche les informations des partitions disques
-    cette fois disque car on a deja créer un liste de dictionnaire dans collector.py 
     """
     print("=== Disques ===")
     for d in disques:
-        print(f"{d['point_montage']} : {d['pourcentage']:.2f}% utilisé")
+        print(f"{d['nom_partition']} : {d['pourcentage']:.2f}% utilisé")
     print()
 
 if __name__ == "__main__":

@@ -3,16 +3,20 @@ import psutil
 from datetime import datetime
 
 def collecter_info_systeme():
-    """Retourne un dictionnaire avec les infos système"""
+    """
+    Retourne un dictionnaire avec les infos système
+    """
     return {
-        'os': platform.system(),
-        'version': platform.version(),
-        'architecture': platform.machine(),
-        'hostname': platform.node()
+        'os_nom': platform.system(),
+        'version_os': platform.version(),
+        'archi': platform.machine(),
+        'nom_machine': platform.node()
     }
 
 def collecter_cpu():
-    """Retourne un dictionnaire avec les infos CPU"""
+    """
+    Retourne un dictionnaire avec infos CPU
+    """
     return {
         'coeurs_physiques': psutil.cpu_count(logical=False),
         'coeurs_logiques': psutil.cpu_count(logical=True),
@@ -20,32 +24,38 @@ def collecter_cpu():
     }
 
 def collecter_memoire():
-    """Retourne un dictionnaire avec les infos mémoire"""
+    """
+    Retourne un dictionnaire avec infos mémoire
+    """
     mem = psutil.virtual_memory()
     return {
-        'total': mem.total,
-        'disponible': mem.available,
+        'total_octets': mem.total,
+        'disponible_octets': mem.available,
         'pourcentage': mem.percent
     }
 
 def collecter_disques():
-    """Retourne une liste de dictionnaires pour chaque partition"""
+    """
+    Retourne une liste de dictionnaires pour chaque partition
+    """
     partitions = []
     for part in psutil.disk_partitions():
         try:
             usage = psutil.disk_usage(part.mountpoint)
             partitions.append({
-                'point_montage': part.mountpoint,
-                'total': usage.total,
-                'utilise': usage.used,
+                'nom_partition': part.mountpoint,
+                'total_octets': usage.total,
+                'utilise_octets': usage.used,
                 'pourcentage': usage.percent
             })
         except PermissionError:
-            continue  # Ignore les partitions inaccessibles
+            continue
     return partitions
 
 def collecter_tout():
-    """Retourne toutes les infos dans un dictionnaire global"""
+    """
+    Retourne un dictionnaire global avec toutes les métriques
+    """
     return {
         'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         'systeme': collecter_info_systeme(),
