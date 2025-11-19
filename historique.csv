@@ -1,3 +1,4 @@
 timestamp,nom_machine,cpu_utilisation,mem_total_octets,mem_disponible_octets,mem_pourcentage,disk_root_pourcentage
 2025-11-19 16:20:09,ordi_pro_Tom,8.7,16908906496,3165908992,81.3,33.7
 2025-11-19 16:39:23,ordi_pro_Tom,4.7,16908906496,3875143680,77.1,33.7
+2025-11-19 16:46:24,ordi_pro_Tom,24.3,16908906496,5703454720,66.3,33.6
