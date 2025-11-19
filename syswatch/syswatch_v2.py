@@ -13,7 +13,7 @@ def afficher_systeme(systeme_info):
     print("=== Système ===")
     print(f"OS: {systeme_info['os_nom']}")
     print(f"Version: {systeme_info['version_os']}")
-    print(f"Architecture: {systeme_info['archi']}")
+    print(f"Architecture: {systeme_info['architecture']}")
     print(f"Nom de la machine: {systeme_info['nom_machine']}\n")
 
 def afficher_cpu(cpu_info):

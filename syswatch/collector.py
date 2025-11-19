@@ -9,7 +9,7 @@ def collecter_info_systeme():
     return {
         'os_nom': platform.system(),
         'version_os': platform.version(),
-        'archi': platform.machine(),
+        'architecture': platform.machine(),
         'nom_machine': platform.node()
     }
 
