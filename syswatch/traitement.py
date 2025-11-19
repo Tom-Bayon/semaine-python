@@ -29,6 +29,20 @@ def calculer_moyennes(fichier_csv):
     }
 
 
-
-    
-    
+def detecter_pics(fichier_csv, seuil_cpu, seuil_mem):
+    """
+    Retourne les moments où CPU > seuil_cpu ou mémoire > seuil_mem
+    """
+    pics = []
+    with open(fichier_csv, newline='') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            cpu = float(row['cpu_percent'])
+            mem = float(row['mem_percent'])
+            if cpu > seuil_cpu or mem > seuil_mem:
+                pics.append({
+                    'le jour est l heure est :': row['timestamp'],
+                    'cpu_percent': cpu,
+                    'mem_percent': mem
+                })
+    return pics
