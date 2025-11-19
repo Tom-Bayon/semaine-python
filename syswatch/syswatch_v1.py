@@ -1,7 +1,7 @@
 import platform
 import psutil
 
-def afficher_infos_systeme():
+def afficher_systeme():
     """Affichage des informations système
     """
     print("=== Système ===")
@@ -12,7 +12,7 @@ def afficher_infos_systeme():
     print(f"Python: {platform.python_version()}")
     print()
 
-def afficher_infos_cpu():
+def afficher_cpu():
     """Affichage du CPU
     """
     print("=== CPU ===")
@@ -21,7 +21,7 @@ def afficher_infos_cpu():
     print(f"Utilisation: {psutil.cpu_percent(interval=1):.2f}%")
     print()
 
-def afficher_infos_memoire():
+def afficher_memoire():
     """Affichage de la mémoire
     """
     mem = psutil.virtual_memory()
@@ -34,7 +34,7 @@ def afficher_infos_memoire():
     print(f"Utilisation: {mem.percent:.2f}%")
     print()
 
-def afficher_infos_disques():
+def afficher_disques():
     """Affichage des disques
     """
     print("=== Disques ===")
@@ -49,7 +49,7 @@ def afficher_infos_disques():
 if __name__ == "__main__":
     print("=== SysWatch v1.0 ===\n")
 
-    afficher_infos_systeme()
-    afficher_infos_cpu()
-    afficher_infos_memoire()
-    afficher_infos_disques()
+    afficher_systeme()
+    afficher_cpu()
+    afficher_memoire()
+    afficher_disques()
