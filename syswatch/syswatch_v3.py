@@ -5,10 +5,16 @@ import json
 from collector import collecter_tout
 from traitement import calculer_moyennes, detecter_pics
 
-# ---------------------------
-# Export CSV
-# ---------------------------
+
 def exporter_csv(metriques, fichier):
+    """ Ajoute une ligne de métriques dans un fichier CSV. 
+    Si le fichier n'existe pas, il est créé 
+
+    Args:
+        metriques (dict) : dictionnaire contenant les valeurs à écrire, 
+        fichier (str) : chemin du fichier CSV à écrire/ajouter
+        """
+
     colonnes = [
         "timestamp",
         "nom_machine",
@@ -29,10 +35,15 @@ def exporter_csv(metriques, fichier):
             writer = csv.DictWriter(f, fieldnames=colonnes)
             writer.writerow(metriques)
 
-# ---------------------------
-# Export JSON
-# ---------------------------
+
 def exporter_json(metriques, fichier):
+    """Enregistre toutes les métriques dans un fichier JSON.
+
+    Args:
+        metriques (dict): Les données complètes collectées
+        fichier (str): Le nom du fichier JSON dans lequel sauvegarder les métriques.
+    """
+
     with open(fichier, "w") as f:
         json.dump(metriques, f, indent=2)
 
@@ -40,6 +51,9 @@ def exporter_json(metriques, fichier):
 # Collecte unique
 # ---------------------------
 def collecte_unique():
+    """Effectue une collecte unique des métriques système, affiche les résultats et les exporte.
+
+    """
     data = collecter_tout()
 
     print("\n=== Collecte unique ===")
@@ -62,10 +76,14 @@ def collecte_unique():
     exporter_csv(ligne_csv, "historique.csv")
     exporter_json(data, "dernier.json")
 
-# ---------------------------
-# Collecte continue
-# ---------------------------
+
 def collecte_continue(intervalle, nombre):
+    """Collecte les métriques en boucle
+
+    Args:
+        intervalle (int): Temps en secondes entre chaque collecte.
+        nombre (int): Nombre total de collectes à effectuer.
+    """
     compteur = 0
     try:
         while True:
@@ -92,10 +110,9 @@ def collecte_continue(intervalle, nombre):
     except KeyboardInterrupt:
         print("\nArrêt manuel par l'utilisateur !")
 
-# ---------------------------
-# Statistiques et pics
-# ---------------------------
+
 def afficher_stats():
+    """Statistiques et pics"""
     stats = calculer_moyennes("historique.csv")
     if stats is None:
         print("Aucune donnée dans le CSV !")
