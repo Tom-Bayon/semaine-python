@@ -47,9 +47,7 @@ def exporter_json(metriques, fichier):
     with open(fichier, "w") as f:
         json.dump(metriques, f, indent=2)
 
-# ---------------------------
-# Collecte unique
-# ---------------------------
+
 def collecte_unique():
     """Effectue une collecte unique des métriques système, affiche les résultats et les exporte.
 
